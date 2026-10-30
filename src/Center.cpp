@@ -13,8 +13,7 @@ Center::Center(bn::fixed_point starting_position, bn::fixed mass, bn::fixed spee
 {
 }
 
-bn::fixed_point
-Center::position()
+bn::fixed_point Center::position()
 {
     return _sprite.position();
 }
