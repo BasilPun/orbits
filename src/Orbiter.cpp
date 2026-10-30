@@ -1,10 +1,11 @@
 #include "Orbiter.h"
 
-#include "bn_sprite_items_dot.h"
+#include "bn_sprite_items_snakehead.h"
+#include "bn_sprite_items_snakebody.h"
 
-Orbiter::Orbiter(bn::fixed_point starting_location, bn::fixed_point starting_velocity, Center &center) : _sprite(bn::sprite_items::dot.create_sprite(starting_location)),
-                                                                                                         _velocity(starting_velocity),
-                                                                                                         _center(center)
+Orbiter::Orbiter(bn::fixed_point starting_location, bn::fixed_point starting_velocity, Center &center, bool isHead) : _sprite(isHead ? (bn::sprite_items::snakehead.create_sprite(starting_location)) : (bn::sprite_items::snakebody.create_sprite(starting_location))),
+                                                                                                                      _velocity(starting_velocity),
+                                                                                                                      _center(center)
 {
 }
 

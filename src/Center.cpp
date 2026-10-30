@@ -1,13 +1,13 @@
 #include "Center.h"
 
 #include "movement.h"
-#include "bn_sprite_items_square.h"
+#include "bn_sprite_items_earth.h"
 
 /**
  * A center of mass to be orbited around. Position is controlled by the player.
  */
 
-Center::Center(bn::fixed_point starting_position, bn::fixed mass, bn::fixed speed) : _sprite(bn::sprite_items::square.create_sprite(starting_position)),
+Center::Center(bn::fixed_point starting_position, bn::fixed mass, bn::fixed speed) : _sprite(bn::sprite_items::earth.create_sprite(starting_position)),
                                                                                      _mass(mass),
                                                                                      _speed(speed)
 {

@@ -6,8 +6,6 @@
 #include <bn_sprite_ptr.h>
 #include <bn_vector.h>
 
-#include "bn_sprite_items_square.h"
-
 #include "Center.h"
 #include "movement.h"
 #include "Orbiter.h"
@@ -35,9 +33,13 @@ int main()
         // Add an orbiter when A is pressed if there's room
         if (bn::keypad::a_pressed())
         {
-            if (orbiters.size() < MAX_ORBITERS)
+            if (orbiters.size() < 1)
             {
-                orbiters.push_back(Orbiter(ORBITER_START_POSIITON, ORBITER_START_VELOCITY, center));
+                orbiters.push_back(Orbiter(ORBITER_START_POSIITON, ORBITER_START_VELOCITY, center, true));
+            }
+            else if (orbiters.size() < MAX_ORBITERS)
+            {
+                orbiters.push_back(Orbiter(ORBITER_START_POSIITON, ORBITER_START_VELOCITY, center, false));
             }
         }
 
