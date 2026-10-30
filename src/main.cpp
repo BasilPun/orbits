@@ -39,7 +39,10 @@ int main()
             }
             else if (orbiters.size() < MAX_ORBITERS)
             {
-                orbiters.push_back(Orbiter(ORBITER_START_POSIITON, ORBITER_START_VELOCITY, center, false));
+                // for the body, start location will be head's/previous body parts location and head's velocity will carry on
+                // bug: orbiters.back()._sprite.position() spawns it right on top... we want it a lil back
+                // maybe make orbiters remember their past few frames of location?
+                orbiters.push_back(Orbiter(orbiters.back().positions.back(), orbiters.back()._velocity, center, false));
             }
         }
 

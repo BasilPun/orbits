@@ -1,5 +1,6 @@
 #pragma once
 
+#include <bn_vector.h>
 #include "Center.h"
 
 /**
@@ -9,6 +10,12 @@
 class Orbiter
 {
 public:
+    bn::sprite_ptr _sprite;
+    bn::fixed_point _velocity;
+    Center &_center;
+    static constexpr int MAX_SIZE = 2;
+    bn::vector<bn::fixed_point, MAX_SIZE> positions = {};
+
     /**
      * Creates an orbiter.
      *
@@ -24,7 +31,4 @@ public:
     void update();
 
 private:
-    bn::sprite_ptr _sprite;
-    bn::fixed_point _velocity;
-    Center &_center;
 };

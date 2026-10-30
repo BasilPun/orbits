@@ -11,6 +11,19 @@ Orbiter::Orbiter(bn::fixed_point starting_location, bn::fixed_point starting_vel
 
 void Orbiter::update()
 {
+    // a vector to remember past 10 frames of position
+    if (positions.size() == MAX_SIZE)
+    {
+        // rm and insert
+        positions.pop_back();
+        positions.insert(positions.begin(), _sprite.position());
+    }
+    else
+    {
+        // just insert
+        positions.insert(positions.begin(), _sprite.position());
+    }
+
     // A vector from the Orbiter to the Center
     bn::fixed_point delta = _center.position() - _sprite.position();
 
